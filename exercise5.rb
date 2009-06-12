@@ -9,6 +9,7 @@ module TraceCalls
           puts "==> Calling #{sym} with #{args.inspect}"
           result = send "__#{sym}__hooked__", *args
           puts "<== result #{result}"
+          result
         end
       end
   end
@@ -25,4 +26,4 @@ end
 
 ex = Example.new
 ex.following :some_method
-ex.some_method(4,5)
+puts ex.some_method(4,5)
